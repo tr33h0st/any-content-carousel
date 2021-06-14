@@ -90,4 +90,4 @@ function ecctdm_content_slider_html_render($atts) {
    return  $content;
 }
  
- add_shortcode('tdm_contentslider', 'ecctdm_content_slider_html_render');
+add_shortcode('tdm_contentslider', 'ecctdm_content_slider_html_render');
