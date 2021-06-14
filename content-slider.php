@@ -9,7 +9,7 @@
    **/
 
 
-  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /* includo stili e script */
 function ecctdm_add_scripts() {
