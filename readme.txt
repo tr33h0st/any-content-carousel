@@ -15,21 +15,21 @@ This plugin generates a shortcode to create a beautiful carousel with any type o
 
 *This plugin lets you add a shorcode of any posts carousel to your theme*
 
-This plugin is built to work for any theme adn any post type or users.
+This plugin is built to work for any theme and any post type or users.
 
 With the Any Content Carousel Plugin you can create Carousels to give value to your Content, your Authors or your products.
 
 <blockquote>
 <h4>More from us</h4>
-<p>We are a team of WordPress enthusiasts who enjoy developing WordPress and WooCommerce themes.</a></p>
-<p>We also blog at GiardinoDiMezzo, where we write about <a href="https://giardinodimezzo.eu">Climate Change</a></p>
+<p>We are a team of WordPress enthusiasts who enjoy <a href="https://treehost.eu">developing WordPress</a> and WooCommerce themes.</p>
+<p>We also blog at <a href="https://giardinodimezzo.eu">GiardinoDiMezzo.eu</a>, where we write about Climate Change</p>
 </blockquote>
 
 **How to use:**
 
 1. Go to Carousel Settings 
 2. Select post Type 
-3. Insert shortcode [ecpt_contentslider] in page content
+3. Insert shortcode [tdm_contentslider] in page content
 the Free version add only one type of carousel but in many page or content 
 the Pro version you create one carousel for any type of post you have.
 
@@ -39,11 +39,11 @@ the Pro version you create one carousel for any type of post you have.
 3. Activate the plugin
 
 == Frequently Asked Questions ==
-how do i get the post type displayed in the carousel ? 
+= how do i get the post type displayed in the carousel ? =
 In the carousel options under Select Post type, search for the post type you want to display among the types your site has.
-How can I add a post type to the list?
+= How can I add a post type to the list? =
 You can create any post type normally like you do on WordPress, using another plugin or by yourself if you know php
-how can i view the products of my e-commerce in the carousel?
+= how can i view the products of my e-commerce in the carousel? =
 the carousel shows the products in evidence, then, after selecting the type of post product, you have to go to the product list and highlight the ones you want in the carousel by clicking on the star. The carousel displays Woocommerce products.
 
 == Upgrade Notice ==

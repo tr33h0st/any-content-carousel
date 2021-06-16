@@ -160,8 +160,7 @@
     max-width: 180px;
     text-align: center; }
     .container-slide .btn-bianco:hover {
-      color: #fff !important;
-      background-color: #000 !important; }
+      opacity: 0.8; }
   .container-slide .btn-arancio {
     background-color: #c4801a;
     border: 1px solid #000;
@@ -171,8 +170,7 @@
     max-width: 197px;
     text-align: center; }
     .container-slide .btn-arancio:hover {
-      color: #fff !important;
-      background-color: #000 !important; }
+      opacity: 0.8; }
   .container-slide #tabs {
     width: 90%;
     margin: 0 auto;

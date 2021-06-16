@@ -106,6 +106,11 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 				} else {
 					unset( $options['read_more_button_color'] ); // Remove from options if empty
 				} 
+				if ( ! empty( $options['read_more_button_txt_color'] ) ) {
+					$options['read_more_button_txt_color'] = sanitize_hex_color( $options['read_more_button_txt_color'] );
+				} else {
+					unset( $options['read_more_button_txt_color'] ); // Remove from options if empty
+				} 
 				if ( ! empty( $options['read_more_button_color_border'] ) ) {
 					$options['read_more_button_color_border'] = sanitize_hex_color( $options['read_more_button_color_border'] );
 				} else {
@@ -133,6 +138,11 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 					$options['add_to_cart_button_color_border'] = sanitize_hex_color( $options['add_to_cart_button_color_border'] );
 				} else {
 					unset( $options['add_to_cart_button_color_border'] ); // Remove from options if empty
+				}
+				if ( ! empty( $options['add_to_cart_button_txt_color'] ) ) {
+					$options['add_to_cart_button_txt_color'] = sanitize_hex_color( $options['add_to_cart_button_txt_color'] );
+				} else {
+					unset( $options['add_to_cart_button_txt_color'] ); // Remove from options if empty
 				}
 
 			}
@@ -186,6 +196,18 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 								}   
 						   ?>
 						   <input class="tdm-color-field" name="ecctdm_options[read_more_button_color]" type="text" value="<?php echo esc_attr( $read_more_color) ?>" data-default-color="#ffffff" />
+						   </td>
+						</tr>
+
+						<tr valig="top">
+						   <th scope="row"><?php esc_html_e('Button Read more Color','tdm_carousel') ?></th>
+						   <td>
+						   <?php $read_more_txt_color = self::get_ecctdm_option( 'read_more_button_txt_color' ); 
+						         if($read_more_txt_color == null || $read_more_txt_color == ''){
+									$read_more_txt_color = "#000000";
+								}   
+						   ?>
+						   <input class="tdm-color-field" name="ecctdm_options[read_more_button_txt_color]" type="text" value="<?php echo esc_attr( $read_more_txt_color) ?>" data-default-color="#000000" />
 						   </td>
 						</tr>
 
@@ -256,6 +278,18 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 								 }  
 						   ?>
 						   <input class="tdm-color-field" name="ecctdm_options[add_to_cart_button_color]" type="text" value="<?php echo esc_attr( $add_to_cart_color) ?>" data-default-color="#c4801a" />
+						   </td>
+						</tr>
+
+						<tr valig="top">
+						   <th scope="row"><?php esc_html_e('Button Add to Cart Color','tdm_carousel') ?></th>
+						   <td>
+						   <?php $add_to_cart_txt_color = self::get_ecctdm_option( 'add_to_cart_button_txt_color' ); 
+						         if($add_to_cart_txt_color == null || $add_to_cart_txt_color == ''){
+									$add_to_cart_txt_color = "#000000";
+								}   
+						   ?>
+						   <input class="tdm-color-field" name="ecctdm_options[add_to_cart_button_txt_color]" type="text" value="<?php echo esc_attr( $add_to_cart_txt_color) ?>" data-default-color="#000000" />
 						   </td>
 						</tr>
 

@@ -1,13 +1,6 @@
 <?php 
 
 // due colonne nel box 
-$args = array(
-    'role__not_in'   => array('subscriber','contributor'),
-    'order' => 'ASC', 
-    'number'=>$posts_number, 
-    'has_published_posts'=> true
-);
-$users = get_users( $args );
 
 if ( $users ) {
    
@@ -47,7 +40,7 @@ if ( $users ) {
       $content .= '<span>'.$user_email.'</span>';
       $content .=  '<hr>';
       $content .=  '<p>'.wp_kses_post(wp_trim_words(get_user_meta($user_id, 'description', true),45)).'</p>';
-      $content .=  '<a style="background:'.$button_color.';border: 1px solid '.$button_color_border.';color:'.$button_color_border.';" class="button btn-bianco" href="'.get_author_posts_url( $user_id ).'">'. __('Read more','ecctdm_carousel') .'</a>';
+      $content .=  '<a style="background:'.$button_bg_color.';border: 1px solid '.$button_color_border.';color:'.$button_color.';" class="button btn-bianco" href="'.get_author_posts_url( $user_id ).'">'. __('Read more','ecctdm_carousel') .'</a>';
       $content .= ' </div>';
    
    $content .= ' </div>';

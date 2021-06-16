@@ -1,28 +1,6 @@
 <?php 
 
  // due colonne nel box 
- ob_start();
- $meta_query  = WC()->query->get_meta_query();
- $tax_query   = WC()->query->get_tax_query();
- 
- $tax_query[] = array(
-    'taxonomy' => 'product_visibility',
-    'field'    => 'name',
-    'terms'    => 'featured',
-    'operator' => 'IN',
- );
-
- $args = array(
-    'post_type'           => 'product',
-    'post_status'         => 'publish',
-    'ignore_sticky_posts' => 1,
-    'posts_per_page'      => $posts_number,
-    'orderby'             => 'date',
-    'order'               => 'ASC',
-    'meta_query'          => $meta_query,
-    'tax_query'           => $tax_query,
- );
- $prdotti = new WP_Query( $args );
   
  if ( $prdotti ) {
     
@@ -62,8 +40,8 @@
        $content .= '<h3>'.esc_html(get_the_title($id_prdotto)).'</h3>';
        $content .=   $thePrice;
        $content .=  '<p>'.apply_filters( 'the_content', wp_kses_post(wp_trim_words( get_the_content(), 10 ) )).'</p>';
-       $content .=  '<a style="background-color:'.$button_color.';border-color:'.$button_color_border.';color:'.$button_color_border.';" class="button btn-bianco" href="'.get_permalink($id_prdotto ).'">'. __('Read more','ecctdm_carousel') .'</a>';
-       $content .=  '<a style="background:'.$product_button_color.';border: 1px solid '.$product_button_color_border.';color:'.$product_button_color_border.';" class="button btn-arancio" href="'.get_site_url().'/?add-to-cart='.$id_prdotto.'">'. __('Add to cart','ecctdm_carousel') .'</a>';
+       $content .=  '<a style="background-color:'.$button_bg_color.';border-color:'.$button_color_border.';color:'.$button_color.';" class="button btn-bianco" href="'.get_permalink($id_prdotto ).'">'. __('Read more','ecctdm_carousel') .'</a>';
+       $content .=  '<a style="background:'.$product_button_bg_color.';border: 1px solid '.$product_button_color_border.';color:'. $product_button_color.';" class="button btn-arancio" href="'.get_site_url().'/?add-to-cart='.$id_prdotto.'">'. __('Add to cart','ecctdm_carousel') .'</a>';
        $content .= ' </div>';
     
     $content .= ' </div>';
