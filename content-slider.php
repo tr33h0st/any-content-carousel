@@ -4,12 +4,12 @@
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
    * Version: 1.0
-   * Author: TreeHost
+   * Author: Matteo Ragusa
    * Author URI: http://treehost.eu/
    **/
 
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /* includo stili e script */
 function ecctdm_add_scripts() {
@@ -32,7 +32,7 @@ function ecctdm_add_scripts() {
  // includo file di utitlity
  include('inc/utility.php');
  include('admin/option-panel.php');
- //[contentslider type]
+ //[tdm_contentslider type]
 function ecctdm_content_slider_html_render($atts) {
 
    $a = shortcode_atts( array(
@@ -43,9 +43,11 @@ function ecctdm_content_slider_html_render($atts) {
    $carousel_title = esc_html(get_ecctdm_option( 'carousel_title' ));
    $post_type = esc_html(get_ecctdm_option( 'select_post_type' ));
    $posts_number = sanitize_option('posts_per_page',get_ecctdm_option( 'post_number' ));
-   $button_color = esc_html(get_ecctdm_option('read_more_button_color'));
+   $button_bg_color = esc_html(get_ecctdm_option('read_more_button_color'));
+   $button_color = esc_html(get_ecctdm_option('read_more_button_txt_color'));
    $button_color_border = esc_html(get_ecctdm_option('read_more_button_color_border'));
-   $product_button_color = esc_html(get_ecctdm_option('add_to_cart_button_color'));
+   $product_button_bg_color = esc_html(get_ecctdm_option('add_to_cart_button_color'));
+   $product_button_color = esc_html(get_ecctdm_option('add_to_cart_button_txt_color'));
    $product_button_color_border = esc_html(get_ecctdm_option('add_to_cart_button_color_border'));
    
 
@@ -71,14 +73,62 @@ function ecctdm_content_slider_html_render($atts) {
    switch ($tipo_di_post) {
       case 'product':
       case 'prodotti':
+          /* Product post type */
+          ob_start();
+            $meta_query  = WC()->query->get_meta_query();
+            $tax_query   = WC()->query->get_tax_query();
+            
+            $tax_query[] = array(
+               'taxonomy' => 'product_visibility',
+               'field'    => 'name',
+               'terms'    => 'featured',
+               'operator' => 'IN',
+            );
+
+            $args = array(
+               'post_type'           => 'product',
+               'post_status'         => 'publish',
+               'ignore_sticky_posts' => 1,
+               'posts_per_page'      => $posts_number,
+               'orderby'             => 'date',
+               'order'               => 'ASC',
+               'meta_query'          => $meta_query,
+               'tax_query'           => $tax_query,
+            );
+            $prdotti = new WP_Query( $args ); 
+
+         $prdotti = apply_filters('ecctdm_carousel_product_query', $prdotti, $args); 
+
          // include product type 
          include('inc/content-product.php');
         break;
       case 'users':
-         // include home type 
+         /* Users */
+         $args = array(
+            'role__not_in'   => array('subscriber','contributor'),
+            'order' => 'ASC', 
+            'number'=>$posts_number, 
+            'has_published_posts'=> true
+        );
+        $users = get_users( $args );
+
+        $users = apply_filters('ecctdm_carousel_user_query', $users, $args); 
+         // include user post type  
          include('inc/content-user.php');
         break;
       default:
+         /* Post Type */
+         $args = array(
+               'post_type' => $tipo_di_post,
+               'orderby'   => 'date',
+               'order' => 'DESC', 
+               'posts_per_page'=>$posts_number, 
+         );
+         $posts = get_posts( $args );     
+
+         // apply filter to modify posts query result
+         $posts = apply_filters('ecctdm_carousel_posts_query', $posts, $tipo_di_post); 
+
          // include post type 
          include('inc/content-post.php');
     }
@@ -90,4 +140,4 @@ function ecctdm_content_slider_html_render($atts) {
    return  $content;
 }
  
-add_shortcode('tdm_contentslider', 'ecctdm_content_slider_html_render');
+ add_shortcode('tdm_contentslider', 'ecctdm_content_slider_html_render');
