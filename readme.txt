@@ -50,6 +50,14 @@ the carousel shows the products in evidence, then, after selecting the type of p
 You will improve the interface and usability of your blog or your e-commerce by simplifying the interaction with your users.
 You can select the type of content yourself to create the carousel and insert it via shortcode in the contents of your site. You can select any type of Post, Custom Post, Woocommerce Products or the authors of your Blog.
 
+1.4
+apply_filter post query ,
+button text color fix,
+Improve post format Video
+Responsive fix
+Carousel in widjet area fix
+
+
 == Screenshots ==
 1. Carousel Posts
 2. Carousel Products

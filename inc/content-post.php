@@ -24,8 +24,16 @@ if ( $posts ) {
       $id_post = esc_attr($post->ID);
       $author_id=esc_attr($post->post_author);
       $author = get_user_by( 'id', $author_id );
-      $author_name = esc_attr($author->user_login);
+      $author_name = esc_attr($author->display_name);
       $category = get_the_category($id_post);
+      $format = get_the_terms( $post->ID, 'post_format' )? : 'standard';
+      if ( is_array($format)){
+          $post_format = $format[0]->name; 
+         
+      }else{
+         $post_format = $format;
+      }
+
       $post_date =get_the_date( 'D j M' );
       $thumnail_url = esc_url(get_the_post_thumbnail_url( $id_post, 'full' ));
       if ($thumnail_url == null){
@@ -36,7 +44,48 @@ if ( $posts ) {
       $content .= '<div class="item-inner">';
 
       $content .= '<div class="col-sx" style="background-image:url('.$thumnail_url.')">';
-         
+      if ($post_format == 'Video'){
+          $iframe = get_media_embedded_in_content( $post->post_content);
+
+          foreach ($iframe as $video ){
+             if ( strpos($video, 'iframe')!== false ){
+                  $video_hetml = substr($video, strrpos($video, 'http'));
+                  $arr = explode("\"", $video_hetml, 2);
+                  $video_url = $arr[0];
+                  $content .= '<a class="play" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
+                  $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
+                  $content .= '</a>';
+                  $content .= '<iframe
+                  src="'.$video_url.'"
+                  id="video-'.$id_post.'"
+                  class="fslightbox-source"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen>
+                  </iframe>';
+                  break;
+             }elseif( strpos($video, 'wp-block-embed-vimeo')!== false ){
+               $video_hetml = substr($video, strrpos($video, 'http'));
+               $arr = explode("<", $video_hetml, 2);
+               $video_url = $arr[0];
+               $content .= '<a class="play" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
+               $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
+               $content .= '</a>';
+               $content .= '<iframe
+               src="'.$video_url.'"
+               id="video-'.$id_post.'"
+               class="fslightbox-source"
+               frameBorder="0"
+               allow="autoplay; fullscreen"
+               allowFullScreen>
+               </iframe>';
+               break;
+               
+             }  
+              
+          }
+          
+       }
 
       $content .= ' </div>';
 

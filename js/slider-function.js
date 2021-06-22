@@ -11,11 +11,14 @@
         inziazilizzo_slick_slider(slick_list_width);
 
          // fix width of item-contenuto
-         if (slick_list_width < 350 ){
-            $(".item-contenuto").css({"max-width":slick_list_width+"px","height":"740px"});
+         if (slick_list_width < 769 ){
+            $(".item-contenuto").css({"max-width":slick_list_width+"px","height":"auto"});
             $(".container-slide .slick-slide ").css({"margin":"0"});
+            // metti with 100% alle colonne dx e sx
+            $(".container-slide .item-inner .col-sx").css({"width":"100%","height":"250px"});
+            $(".container-slide .item-inner .col-dx").css({"width":"100%","height":"auto"});
         }else{
-            $(".item-contenuto").css({"max-width":slick_list_width+"px"});
+            $(".item-contenuto").css({"width":slick_list_width+"px"});
         }
 
         /* tab title funxtion */
@@ -36,57 +39,6 @@
                   $('.carosello').slick('setPosition');
                }
               });
-
-              /* Modal */
-
-                // Get the modal
-                var modal = document.getElementById("video-Modal");
-
-                // Get the button that opens the modal
-                var btn = document.getElementById("play"); 
-                //var btn = document.getElementsByClassName("play");
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-                // When the user clicks on the button, open the modal
-                /* btn.onclick = function() {
-                modal.style.display = "block";
-                var video_url = btn.value;
-
-                var iframe = document.getElementById('ifrm');
-                iframe.src = video_url;
-                console.log('apro modal '+video_url);
-                } */
-
-                function reply_click(clicked_id) {
-                    modal.style.display = "block";
-
-                    var btn = document.getElementById(clicked_id); 
-
-                    var video_url = btn.value;
-                    console.log('apro modal '+video_url);
-                    var iframe = document.getElementById('ifrm');
-                    iframe.src = video_url;
-                }
-
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                modal.style.display = "none";
-                var iframe = document.getElementById('ifrm');
-                    iframe.src = '';
-                }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                    var iframe = document.getElementById('ifrm');
-                    iframe.src = '';
-                }
-                }
-
-
-              /********* */
             
     
         });

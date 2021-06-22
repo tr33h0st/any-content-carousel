@@ -36,3 +36,38 @@ function ecctdm_exerpt_content($content,$limit) {
     }
     return $ret . '...';
  }
+
+ // Add figure type to media type in get_media_embedded_in_content()
+ add_filter( 'media_embedded_in_content_allowed_types', function( $types )
+{
+    array_push($types, 'figure');
+
+    return $types;
+} );
+
+/* Get Video url in Content */
+/* argument array of media content from get_media_embedded_in_content */
+/* function tdm_get_video_in_content($iframe){
+  foreach ($iframe as $video ){
+    if ( strpos($video, 'iframe')!== false ){
+         $video_hetml = substr($video, strrpos($video, 'http'));
+         $arr = explode("\"", $video_hetml, 2);
+         $video_url = $arr[0];
+         $content .= '<a class="play" data-fslightbox="gallery" href="'.$video_url.'">';
+         $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
+         $content .= '</a>';
+         break;
+    }elseif( strpos($video, 'figure')!== false ){
+      $video_hetml = substr($video, strrpos($video, 'http'));
+      $arr = explode("<", $video_hetml, 2);
+      $video_url = $arr[0];
+      $content .= '<a class="play" data-fslightbox="gallery" href="'.$video_url.'">';
+      $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
+      $content .= '</a>';
+      break;
+      
+    }  
+     
+ }
+ return 
+} */

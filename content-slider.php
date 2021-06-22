@@ -4,7 +4,7 @@
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
    * Version: 1.0
-   * Author: Matteo Ragusa
+   * Author: TreeHost
    * Author URI: http://treehost.eu/
    **/
 
@@ -23,6 +23,7 @@ function ecctdm_add_scripts() {
 
    wp_enqueue_script( 'slick-1.8.1', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.min.js', array ( 'jquery' ), 1.1, true);
   
+   wp_enqueue_script( 'fslightboxjs', plugin_dir_url( __FILE__ ) . '/js/fslightbox.js', array ( 'jquery' ), 1.1, true);
    wp_enqueue_script( 'functionjs', plugin_dir_url( __FILE__ ) . '/js/slider-function.js', array ( 'jquery' ), 1.1, true);
   // }
 
@@ -141,3 +142,13 @@ function ecctdm_content_slider_html_render($atts) {
 }
  
  add_shortcode('tdm_contentslider', 'ecctdm_content_slider_html_render');
+
+  /* Set panel for pst format */
+
+  function tdm_post_formats_setup() {
+
+   add_theme_support( 'post-formats', array('gallery','quote','video','aside','image', 'link','status','audio','chat') );
+   
+   }
+   
+   add_action( 'after_setup_theme', 'tdm_post_formats_setup' );

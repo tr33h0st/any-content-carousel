@@ -32,9 +32,6 @@ $tablet: 992px;
             background: #fff;
             text-align: center;
             padding: 0;
-            @media only screen and (min-width: $mobile ) {
-              max-height: 350px;
-            }
         }
         &.item-contenuto{
           padding: 0;
@@ -138,13 +135,14 @@ $tablet: 992px;
       }
     /* Colonne */
     .col-sx{
-        width: 350px;
-        height: 350px;
+        width: 100%;
+        height: 250px;
         position: relative;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        display: block;
+        //display: block;
+        float: left;
         img{
           margin-left: -17px;
           margin-top: -22px;
@@ -166,8 +164,9 @@ $tablet: 992px;
             margin: 0 auto;
           }
         }
-        @media only screen and (min-width: 420px ) {
-         //width: 69%;
+        @media only screen and (min-width:$mobile ) {
+          width: 50%;
+          height: 500px;
         }
         
         .avatar-image{
@@ -184,15 +183,41 @@ $tablet: 992px;
           margin: 6.9rem;
           @include avatar-shadow();
         }
+        a.play {
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          border: 0;
+          background-color: transparent;
+          padding: 0;
+          outline: 0;
+          img {
+            position: absolute;
+            top: calc(50% - 54px) !important;
+            left: calc(50% - 51px)!important;
+
+            transform: scale(.8);
+            transition: all 1s cubic-bezier(.215,.61,.355,1);
+            @media only screen and (min-width: $mini_mobile ){
+              top: calc(50% - 121px)!important;
+              left: calc(50% - 18px)!important;
+
+              
+            }
+            @media only screen and (min-width: $mobile ){
+              left: calc(50% - 61px) !important;
+            }
+           
+        }
+      }
     }
     
     .col-dx{
-        width: 350px;
-        height: 350px;
-       // float: left;
-        display: block;
+        width: 100%;
+        float: left;
+        //display: block;
         text-align: left;
-        padding: 18px;
+        padding: 30px;
         h3 {
           text-transform: uppercase;
           width: auto;
@@ -206,8 +231,8 @@ $tablet: 992px;
           border: 1px solid #000;
           border-width: 4px 0 0 0;
         }
-        @media only screen and (min-width: 420px ) {
-         // width: 69%;
+        @media only screen and (min-width: $mobile ) {
+          width: 50%;
         }
 
     }
@@ -295,95 +320,6 @@ $tablet: 992px;
         }
      }
 
-     // box video 
-     .box-video {
-        width: 100%;
-        max-width: 1000px;
-        text-align: center;
-        padding-top: 20px;
-        margin: 0 auto;
-        iframe{
-            width: 100% !important;
-            height: 500px;
-        }
-    }
-
-}
-
-
- //a {cursor:pointer;}
- 
-/* modal */
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 9999; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  .modal_body{
-    position: relative;
-    background-color: transparent;
-    margin: auto;
-    padding: 1px;
-    width: 75%;
-    //max-width: 560px;
-    height: 620px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    top: 4rem;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    iframe{
-      height:615px;
-    }
-
-  }
-}
-
-/* The Close Button */
-.close {
-  color: #fff;
-    float: right;
-    font-size: 3rem;
-    //font-weight: bold;
-    position: absolute;
-    top: 2rem;
-    right: 1rem;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-button.play {
-    position: relative;
-    margin: 0 auto;
-    cursor: pointer;
-    border: 0;
-    background-color: transparent;
-    padding: 8rem;
-  @media only screen and (min-width: $mobile ) {
-    
-  }
-  @media only screen and (min-width: $tablet ) {
-    padding: 11rem;
-  }
- 
 }
 
 /* sick slider */
