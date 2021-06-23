@@ -52,13 +52,12 @@ if ( $posts ) {
                   $video_hetml = substr($video, strrpos($video, 'http'));
                   $arr = explode("\"", $video_hetml, 2);
                   $video_url = $arr[0];
-                  $content .= '<a class="play" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
+                  $content .= '<a class="play" data-class="tdm-fslightbox-source" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
                   $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
                   $content .= '</a>';
                   $content .= '<iframe
                   src="'.$video_url.'"
                   id="video-'.$id_post.'"
-                  class="fslightbox-source"
                   frameBorder="0"
                   allow="autoplay; fullscreen"
                   allowFullScreen>
@@ -68,13 +67,12 @@ if ( $posts ) {
                $video_hetml = substr($video, strrpos($video, 'http'));
                $arr = explode("<", $video_hetml, 2);
                $video_url = $arr[0];
-               $content .= '<a class="play" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
+               $content .= '<a class="play" data-class="tdm-fslightbox-source" data-fslightbox="lightbox-'.$id_post.'" href="#video-'.$id_post.'">';
                $content .= '<img src="'.plugin_dir_url( __FILE__ ) . '../img/play.svg'.'" >';
                $content .= '</a>';
                $content .= '<iframe
                src="'.$video_url.'"
                id="video-'.$id_post.'"
-               class="fslightbox-source"
                frameBorder="0"
                allow="autoplay; fullscreen"
                allowFullScreen>
