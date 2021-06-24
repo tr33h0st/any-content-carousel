@@ -15,7 +15,7 @@ if ( $posts ) {
 
   $content .= '</ul>';
 
-   $content .= '<div class="tab-content " id="tab1C">';
+   $content .= '<div style="opacity:0;" class="tab-content " id="tab1C">';
 
    $content .= ' <div class="carosello">';
    $i=1;

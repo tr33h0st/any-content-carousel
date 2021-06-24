@@ -353,6 +353,8 @@ $tablet: 992px;
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
+  transition: opacity 0.9s;
+  -webkit-transition: opacity 0.9s;
 }
 
 /* fslightbox */

@@ -1,11 +1,11 @@
 === Any Content Carousel ===
 Contributors: treehost,Matteo182
-Tags: woocommerce, ecommerce, carousel, carousel, slick slider
+Tags: woocommerce, carousel, author carousel, post carousel, product carousel, slick slider, custom post type, post, type, shortcode
 Donate link: https://paypal.me/treehost
 Requires at least: 3.8
 Tested up to: 5.7.2
 Requires PHP: 5.2.4
-Stable tag: 1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,11 +13,13 @@ This plugin generates a shortcode to create a beautiful carousel with any type o
 
 == Description ==
 
-*This plugin lets you add a shorcode of any posts carousel to your theme*
+*The plugin allows you to create a carousel with any type of post you have.*
 
 This plugin is built to work for any theme and any post type or users.
 
 With the Any Content Carousel Plugin you can create Carousels to give value to your Content, your Authors or your products.
+
+Fully Responsive and Touch-friendly
 
 <blockquote>
 <h4>More from us</h4>
@@ -33,12 +35,33 @@ With the Any Content Carousel Plugin you can create Carousels to give value to y
 the Free version add only one type of carousel but in many page or content 
 the Pro version you create one carousel for any type of post you have.
 
+= Showcase =
+See how it works : [Showcase](https://treehost.eu/wordpress-plugin-any-content-carousel/).
+
+= Feedback =
+Any suggestions or comments are welcome. Feel free to contact us via the [contact form](https://treehost.eu/).
+
 == Installation ==
 1.In your WordPress admin panel, go to *Plugins > New Plugin*, search for **Any Content Carousel** and click \"*Install now*\"
 2. Alternatively, download the plugin and upload the contents of `any-content-carousel.zip` to your plugins directory, which usually is `/wp-content/plugins/`.
 3. Activate the plugin
 
+
 == Frequently Asked Questions ==
+= How do I embed the carousel in my theme? =
+There are tree easy ways to display Any Content Carousel in your theme:
+
+– **Using a shortcode**
+
+`[tdm_contentslider]`
+
+– **As a widget** - in your WordPress admin panel, go to `Appearance → Widgets`, choose text widget, and use the shortcode
+
+`[tdm_contentslider]`
+
+– **Using PHP**
+
+`<?php echo do_shortcode('[tdm_contentslider]'); ?>`
 = how do i get the post type displayed in the carousel ? =
 In the carousel options under Select Post type, search for the post type you want to display among the types your site has.
 = How can I add a post type to the list? =
@@ -50,13 +73,6 @@ the carousel shows the products in evidence, then, after selecting the type of p
 You will improve the interface and usability of your blog or your e-commerce by simplifying the interaction with your users.
 You can select the type of content yourself to create the carousel and insert it via shortcode in the contents of your site. You can select any type of Post, Custom Post, Woocommerce Products or the authors of your Blog.
 
-1.4
-apply_filter post query ,
-button text color fix,
-Improve post format Video
-Responsive fix
-Carousel in widjet area fix
-
 
 == Screenshots ==
 1. Carousel Posts
@@ -66,4 +82,12 @@ Carousel in widjet area fix
 5. Carousel Setting Area
 
 == Changelog ==
-1.0 
+= 1.0 =
+
+= 1.2.0, July 01, 2021 =
+* ADD: apply_filter after query_post to be able to change the result
+* ADD: enqueue script only when the shortcode is present in the content or in a widget
+* ADD: Improve post format Video
+* FIX: button text color
+* FIX: Responsive
+* FIX: Carousel in widjet area

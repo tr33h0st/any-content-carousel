@@ -2,13 +2,15 @@
     
     $(document).ready(function(){
 
-        /* slik slider inizializzazione */
+        $('.container-slide .tab-content:first').css('opacity','1');
+
+          /* slik slider inizializzazione */
 
         // width of container slick-list
         var slick_list_width = $('.tab-content').outerWidth();
        
     
-        inziazilizzo_slick_slider(slick_list_width);
+        inziazilizzo_slick_slider(slick_list_width);    
 
          // fix width of item-contenuto
          if (slick_list_width < 769 ){
@@ -21,7 +23,7 @@
             $(".item-contenuto").css({"width":slick_list_width+"px"});
         }
 
-        /* tab title funxtion */
+        /* tab title function */
 
         $('.container-slide #tabs li a:not(:first)').addClass('inactive');
             $('.container-slide .tab-content').hide();
@@ -39,7 +41,7 @@
                   $('.carosello').slick('setPosition');
                }
               });
-            
+   
         });
 
 

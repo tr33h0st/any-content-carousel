@@ -3,7 +3,7 @@
    * Plugin Name: Any Content Carousel
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
-   * Version: 1.0
+   * Version: 1.2.0
    * Author: TreeHost
    * Author URI: http://treehost.eu/
    **/
@@ -11,28 +11,42 @@
 
   if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/* includo stili e script */
-function ecctdm_add_scripts() {
-   global $post;
-     
-   //if(has_shortcode( $post->post_content, 'ecctdm_contentslider') && ( is_single() || is_page() ) ){
+/* register style and script */
+add_action( 'wp_enqueue_scripts', 'ecctdm_register_script');
 
-   wp_enqueue_style( 'slider-style', plugin_dir_url( __FILE__ ) . '/css/slider-style.css');
-   wp_enqueue_style( 'slider', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.css');
-   wp_enqueue_style( 'slider-theme', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick-theme.css');
+function ecctdm_register_script(){
+   wp_register_style( 'slider-style', plugin_dir_url( __FILE__ ) . '/css/slider-style.css');
+   wp_register_style( 'slider', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.css');
+   wp_register_style( 'slider-theme', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick-theme.css');
 
-   wp_enqueue_script( 'slick-1.8.1', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.min.js', array ( 'jquery' ), 1.1, true);
+   wp_register_script( 'slick-1.8.1', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.min.js', array ( 'jquery' ), 1.1, true);
   
-   wp_enqueue_script( 'fslightboxjs', plugin_dir_url( __FILE__ ) . '/js/fslightbox.js', array ( 'jquery' ), 1.1, true);
-   wp_enqueue_script( 'functionjs', plugin_dir_url( __FILE__ ) . '/js/slider-function.js', array ( 'jquery' ), 1.1, true);
-  // }
+   wp_register_script( 'fslightboxjs', plugin_dir_url( __FILE__ ) . '/js/fslightbox.js', array ( 'jquery' ), 1.1, true);
+   wp_register_script( 'functionjs', plugin_dir_url( __FILE__ ) . '/js/slider-function.js', array ( 'jquery' ), 1.1, true);
+}
 
- }
- add_action( 'wp_enqueue_scripts', 'ecctdm_add_scripts' );
+/* enqueue style and script anly if short_code is present */
+add_filter( 'do_shortcode_tag','ecctdm_enqueue_script',10,3);
+
+function ecctdm_enqueue_script($output, $tag, $attr){
+  if('tdm_contentslider' != $tag){ //make sure it is the right shortcode
+    return $output;
+  }
+  wp_enqueue_style( 'slider-style');
+  wp_enqueue_style( 'slider');
+  wp_enqueue_style( 'slider-theme');
+
+  wp_enqueue_script( 'slick-1.8.1');
  
+  wp_enqueue_script( 'fslightboxjs');
+  wp_enqueue_script( 'functionjs');
+  return $output;
+}
+
  // includo file di utitlity
  include('inc/utility.php');
  include('admin/option-panel.php');
+ 
  //[tdm_contentslider type]
 function ecctdm_content_slider_html_render($atts) {
 
