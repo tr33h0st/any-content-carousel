@@ -69,15 +69,15 @@
       .container-slide .slick-dots li button:focus:before {
         content: '\002B24';
         font-size: 18px;
-        padding-top: 3px; }
+        padding-top: 2px; }
       .container-slide .slick-dots li button:hover:before {
         content: '\002B24';
         font-size: 18px;
-        padding-top: 3px; }
+        padding-top: 2px; }
       .container-slide .slick-dots li.slick-active button:before {
         content: '\002B24';
         font-size: 18px;
-        padding-top: 3px; }
+        padding-top: 2px; }
   .container-slide .item-inner {
     display: flex;
     flex-wrap: wrap;
