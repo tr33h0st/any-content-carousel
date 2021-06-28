@@ -13,7 +13,7 @@ $tablet: 992px;
     .carosello{
         width: 90%;
         margin: 0 auto;
-        min-height: 390px;
+        min-height: 540px;
         @media only screen and (min-width: $mobile ) {
           width: 100%;
         }
@@ -91,20 +91,20 @@ $tablet: 992px;
         button{
           &:before {
             content: '\0025CB';
-            font-size: 18px;
+            font-size: 30px;
           }
           &:focus{
               &:before {
                 content: '\002B24';
-                font-size: 11px;
-                padding-top: 1.3px;
+                font-size: 18px;
+                padding-top: 3px;
               }
           }
           &:hover{
             &:before {
               content: '\002B24';
-              font-size: 11px;
-              padding-top: 1.3px;
+              font-size: 18px;
+              padding-top: 3px;
             }
         }
         }
@@ -112,8 +112,8 @@ $tablet: 992px;
           button{
             &:before {
               content: '\002B24';
-              font-size: 11px;
-              padding-top: 1.3px;
+              font-size: 18px;
+              padding-top: 3px;
           }
           }
         }
