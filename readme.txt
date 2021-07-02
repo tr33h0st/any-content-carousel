@@ -9,11 +9,11 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin generates a shortcode to create a beautiful carousel with any type of post you have on your site: Product, Post, User, Portfolio etc.
+This plugin generates a shortcode to create a beautiful carousel with any post type you have on your site: Product, Post, User, Portfolio etc.
 
 == Description ==
 
-*The plugin allows you to create a carousel with any type of post you have.*
+*The plugin allows you to create a carousel with any post type you have.*
 
 This plugin is built to work for any theme and any post type or users.
 
@@ -67,11 +67,13 @@ In the carousel options under Select Post type, search for the post type you wan
 = How can I add a post type to the list? =
 You can create any post type normally like you do on WordPress, using another plugin or by yourself if you know php
 = how can i view the products of my e-commerce in the carousel? =
-the carousel shows the products in evidence, then, after selecting the type of post product, you have to go to the product list and highlight the ones you want in the carousel by clicking on the star. The carousel displays Woocommerce products.
+the carousel shows the featured products, then, after selecting the post type product, you have to go to the product list and highlight the ones you want in the carousel by clicking on the star. The carousel displays Woocommerce products.
+= How do I show a video from the carousel ? =
+now the plugin activates the selection of the post format, if you select the post format Video in post edior, the plugin will take the first video it finds from the content of the post and will make it visible by clicking on the play button directly in the carousel.
 
 == Upgrade Notice ==
 You will improve the interface and usability of your blog or your e-commerce by simplifying the interaction with your users.
-You can select the type of content yourself to create the carousel and insert it via shortcode in the contents of your site. You can select any type of Post, Custom Post, Woocommerce Products or the authors of your Blog.
+You can select the type of content yourself to create the carousel and insert it via shortcode in the contents of your site. You can select any post type, Custom Post, Woocommerce Products or the authors of your Blog.
 
 
 == Screenshots ==
