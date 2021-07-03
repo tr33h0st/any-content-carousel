@@ -3,7 +3,7 @@
    * Plugin Name: Any Content Carousel
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
-   * Version: 1.2.0
+   * Version: 1.2.1
    * Author: TreeHost
    * Author URI: http://treehost.eu/
    **/
