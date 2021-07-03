@@ -281,7 +281,7 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 						   </td>
 						</tr>
 
-						<tr valig="top">
+						<tr class="produtc_option" valig="top" hidden>
 						   <th scope="row"><?php esc_html_e('Button Add to Cart Color','tdm_carousel') ?></th>
 						   <td>
 						   <?php $add_to_cart_txt_color = self::get_ecctdm_option( 'add_to_cart_button_txt_color' ); 

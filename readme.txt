@@ -93,3 +93,6 @@ You can select the type of content yourself to create the carousel and insert it
 * FIX: button text color
 * FIX: Responsive
 * FIX: Carousel in widjet area
+
+= 1.2.1, July 01, 2021 =
+* FIX: Carousel responsive
