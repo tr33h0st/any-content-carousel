@@ -5,7 +5,7 @@ Donate link: https://paypal.me/treehost
 Requires at least: 3.8
 Tested up to: 5.7.2
 Requires PHP: 5.2.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,3 +96,6 @@ You can select the type of content yourself to create the carousel and insert it
 
 = 1.2.1, July 01, 2021 =
 * FIX: Carousel responsive
+
+= 1.2.2, July 03, 2021 =
+* FIX: add library fslightboxjs 

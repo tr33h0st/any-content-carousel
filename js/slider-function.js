@@ -19,6 +19,7 @@
             // metti with 100% alle colonne dx e sx
             $(".container-slide .item-inner .col-sx").css({"width":"100%","height":"250px"});
             $(".container-slide .item-inner .col-dx").css({"width":"100%","height":"auto"});
+            $(".container-slide .item-inner").css({"flex-wrap":"wrap"});
         }else{
             $(".item-contenuto").css({"width":slick_list_width+"px"});
         }

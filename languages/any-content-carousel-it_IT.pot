@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: any content carousel\n"
+"Language: it\n"
+
+#: 
+msgid "Latest from the Blog"
+msgstr ""
+
+#: 
+msgid "Read more"
+msgstr ""
+
+#: 
+msgid "Featured products"
+msgstr ""
+
+#: 
+msgid "Author"
+msgstr ""
+
+#: 
+msgid "Carousel Title"
+msgstr ""
+
+#: 
+msgid "Button Read more background Color"
+msgstr ""
+
+#: 
+msgid "Button Read more Color"
+msgstr ""
+
+#: 
+msgid "Button Read more Color Border"
+msgstr ""
+
+#: 
+msgid "Number of posts to show"
+msgstr ""
+
+#: 
+msgid "Select post type"
+msgstr ""
+

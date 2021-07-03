@@ -3,7 +3,7 @@
    * Plugin Name: Any Content Carousel
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
-   * Version: 1.2.1
+   * Version: 1.2.2
    * Author: TreeHost
    * Author URI: http://treehost.eu/
    **/
@@ -21,7 +21,7 @@ function ecctdm_register_script(){
 
    wp_register_script( 'slick-1.8.1', plugin_dir_url( __FILE__ ) . '/js/slick-1.8.1/slick.min.js', array ( 'jquery' ), 1.1, true);
   
-   wp_register_script( 'fslightboxjs', plugin_dir_url( __FILE__ ) . '/js/fslightbox.js', array ( 'jquery' ), 1.1, true);
+   wp_register_script( 'fslightboxjs', plugin_dir_url( __FILE__ ) . '/js/fslightbox-basic-3.3.0/fslightbox.js', array ( 'jquery' ), 3.3, true);
    wp_register_script( 'functionjs', plugin_dir_url( __FILE__ ) . '/js/slider-function.js', array ( 'jquery' ), 1.1, true);
 }
 
