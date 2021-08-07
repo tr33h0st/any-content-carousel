@@ -4,7 +4,7 @@
   
  if ( $prdotti ) {
     
-    $content .= '<ul id="tabs" >';
+    $content .= '<ul class="tabs" >';
 
    if ($carousel_title != null || $carousel_title !=''){
       $content .= '<li><a id="tab1"><h2>'.$carousel_title.'</h2></a></li>';

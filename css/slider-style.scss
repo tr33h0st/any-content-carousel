@@ -10,15 +10,12 @@ $tablet: 992px;
 
 .container-slide{
     width: 100%;
-    //height: 950px;
-    margin-bottom: 30px;
     .carosello{
         width: 90%;
         margin: 0 auto;
-        //height: 750px;
+        min-height: 540px;
         @media only screen and (min-width: $mobile ) {
           width: 100%;
-         // height: 540px;
         }
     }
     
@@ -44,9 +41,6 @@ $tablet: 992px;
           -moz-box-shadow: 0 0 20px rgba(0,0,0,0.15);
           -o-box-shadow: 0 0 20px rgba(0,0,0,0.15);
           box-shadow: 0 0 20px rgb(0,0,0);
-          @media only screen and (min-width: $mobile ) {
-            height: 500px;
-          }
         }
         
     }
@@ -137,7 +131,6 @@ $tablet: 992px;
       max-width: 350px;
       @media only screen and (min-width: $mobile ) {
         max-width: 100%;
-        flex-wrap: nowrap;
         
       }
     /* Colonne */
@@ -187,8 +180,15 @@ $tablet: 992px;
           border: none;
           width: 8rem;
           height: 8rem;
-          margin: 6.9rem;
+          margin: 6.6rem;
           @include avatar-shadow();
+          @media only screen and (min-width:$mobile){
+            margin: 0 auto;
+            margin-top: 5rem;
+          }
+          @media only screen and (min-width:$tablet){
+            margin: 11.6rem;
+          } 
         }
         a.play {
           width: 100%;
@@ -226,23 +226,18 @@ $tablet: 992px;
         //display: block;
         text-align: left;
         padding: 30px;
-        white-space: break-spaces;
         h3 {
           text-transform: uppercase;
           width: auto;
           font-size: 1.1em;
           margin-bottom: 0;
           margin-top:0px;
-          white-space: break-spaces;
         }
         hr{
           height: 0;
           width: 3rem;
           border: 1px solid #000;
           border-width: 4px 0 0 0;
-        }
-        p{
-          white-space: break-spaces;
         }
         @media only screen and (min-width: $mobile ) {
           width: 50%;
@@ -280,8 +275,7 @@ $tablet: 992px;
     }
     
     /* Tab */
-    
-    #tabs {
+    ul.tabs {
         width: 90%;
         margin: 0 auto;
         text-align: center;

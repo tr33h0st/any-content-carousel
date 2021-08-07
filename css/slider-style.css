@@ -1,11 +1,11 @@
 .container-slide {
   width: 100%;
-  margin-bottom: 30px;
   /* bottoni */
   /* Tab */ }
   .container-slide .carosello {
     width: 90%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    min-height: 540px; }
     @media only screen and (min-width: 769px) {
       .container-slide .carosello {
         width: 100%; } }
@@ -27,9 +27,6 @@
       -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       box-shadow: 0 0 20px black; }
-      @media only screen and (min-width: 769px) {
-        .container-slide .item.item-contenuto {
-          height: 500px; } }
   .container-slide .slick-slide {
     transform: scale(0.8);
     opacity: 0.3;
@@ -92,8 +89,7 @@
     /* Colonne */ }
     @media only screen and (min-width: 769px) {
       .container-slide .item-inner {
-        max-width: 100%;
-        flex-wrap: nowrap; } }
+        max-width: 100%; } }
     .container-slide .item-inner .col-sx {
       width: 100%;
       height: 250px;
@@ -135,9 +131,16 @@
         border: none;
         width: 8rem;
         height: 8rem;
-        margin: 6.9rem;
+        margin: 6.6rem;
         -webkit-box-shadow: 0px 0px 0px 8px #3d3d3d, 0px 0px 0px 16px #4B4C4B, 0px 0px 0px 24px #828482, 0px 0px 0px 31px #B2B5B2, 0px 0px 0px 39px #DADDDA, 0px 0px 50px 50px rgba(193, 187, 184, 0);
         box-shadow: 0px 0px 0px 8px #3d3d3d, 0px 0px 0px 16px #4B4C4B, 0px 0px 0px 24px #828482, 0px 0px 0px 31px #B2B5B2, 0px 0px 0px 39px #DADDDA, 0px 0px 50px 50px rgba(193, 187, 184, 0); }
+        @media only screen and (min-width: 769px) {
+          .container-slide .item-inner .col-sx .avatar-image {
+            margin: 0 auto;
+            margin-top: 5rem; } }
+        @media only screen and (min-width: 992px) {
+          .container-slide .item-inner .col-sx .avatar-image {
+            margin: 11.6rem; } }
       .container-slide .item-inner .col-sx a.play {
         width: 100%;
         height: 100%;
@@ -164,22 +167,18 @@
       width: 100%;
       float: left;
       text-align: left;
-      padding: 30px;
-      white-space: break-spaces; }
+      padding: 30px; }
       .container-slide .item-inner .col-dx h3 {
         text-transform: uppercase;
         width: auto;
         font-size: 1.1em;
         margin-bottom: 0;
-        margin-top: 0px;
-        white-space: break-spaces; }
+        margin-top: 0px; }
       .container-slide .item-inner .col-dx hr {
         height: 0;
         width: 3rem;
         border: 1px solid #000;
         border-width: 4px 0 0 0; }
-      .container-slide .item-inner .col-dx p {
-        white-space: break-spaces; }
       @media only screen and (min-width: 769px) {
         .container-slide .item-inner .col-dx {
           width: 50%; } }
@@ -204,22 +203,22 @@
     text-align: center; }
     .container-slide .btn-arancio:hover {
       opacity: 0.8; }
-  .container-slide #tabs {
+  .container-slide ul.tabs {
     width: 90%;
     margin: 0 auto;
     text-align: center;
     padding: 0; }
     @media only screen and (min-width: 500px) {
-      .container-slide #tabs {
+      .container-slide ul.tabs {
         padding: auto; } }
-    .container-slide #tabs li {
+    .container-slide ul.tabs li {
       list-style: none;
       margin-right: 5px;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       outline: none;
       display: inline-block; }
-      .container-slide #tabs li a {
+      .container-slide ul.tabs li a {
         cursor: pointer;
         font-family: Arial, Helvetica, sans-serif;
         font-size: small;
@@ -234,17 +233,17 @@
         text-decoration: none;
         outline: none;
         border-bottom: 1px solid #000; }
-        .container-slide #tabs li a.inactive {
+        .container-slide ul.tabs li a.inactive {
           padding-top: 5px;
           padding-bottom: 8px;
           padding-left: 8px;
           padding-right: 8px;
           outline: none;
           border-bottom: 0; }
-          .container-slide #tabs li a.inactive:hover {
+          .container-slide ul.tabs li a.inactive:hover {
             color: #000;
             outline: none; }
-        .container-slide #tabs li a:hover {
+        .container-slide ul.tabs li a:hover {
           color: #000;
           outline: none; }
 

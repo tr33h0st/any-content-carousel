@@ -1,4 +1,4 @@
-=== Any Content Carousel ===
+﻿=== Any Content Carousel ===
 Contributors: treehost,Matteo182
 Tags: woocommerce, carousel, author carousel, post carousel, product carousel, slick slider, custom post type, post, type, shortcode
 Donate link: https://paypal.me/treehost
@@ -99,3 +99,6 @@ You can select the type of content yourself to create the carousel and insert it
 
 = 1.2.2, July 03, 2021 =
 * FIX: add library fslightboxjs 
+
+= 1.2.3, August 07, 2021 =
+* FIX: User Author carousel 

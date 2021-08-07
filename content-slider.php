@@ -120,10 +120,10 @@ function ecctdm_content_slider_html_render($atts) {
       case 'users':
          /* Users */
          $args = array(
-            'role__not_in'   => array('subscriber','contributor'),
+            'role__in'   => array('author','editor'),
             'order' => 'ASC', 
             'number'=>$posts_number, 
-            'has_published_posts'=> true
+            'has_published_posts'=> [ 'post' ]
         );
         $users = get_users( $args );
 
