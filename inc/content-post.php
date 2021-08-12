@@ -34,7 +34,7 @@ if ( $posts ) {
          $post_format = $format;
       }
 
-      $post_date =get_the_date( 'D j M' );
+      $post_date =get_the_date( 'D j M' ,$id_post );
       $thumnail_url = esc_url(get_the_post_thumbnail_url( $id_post, 'full' ));
       if ($thumnail_url == null){
          $thumnail_url = esc_url(plugin_dir_url(__FILE__) .'../img/user_no_photo.jpg');
