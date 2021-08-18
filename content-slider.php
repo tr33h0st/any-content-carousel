@@ -3,7 +3,7 @@
    * Plugin Name: Any Content Carousel
    * Plugin URI: https://www.treehost.eu/
    * Description: Create Carousels with any post Type
-   * Version: 1.2.2
+   * Version: 1.3.0
    * Author: TreeHost
    * Author URI: http://treehost.eu/
    **/
@@ -57,6 +57,7 @@ function ecctdm_content_slider_html_render($atts) {
    /* get option from option page */
    $carousel_title = esc_html(get_ecctdm_option( 'carousel_title' ));
    $post_type = esc_html(get_ecctdm_option( 'select_post_type' ));
+   $post_category = esc_html(get_ecctdm_option('selected_category'));
    $posts_number = sanitize_option('posts_per_page',get_ecctdm_option( 'post_number' ));
    $button_bg_color = esc_html(get_ecctdm_option('read_more_button_color'));
    $button_color = esc_html(get_ecctdm_option('read_more_button_txt_color'));
@@ -64,7 +65,6 @@ function ecctdm_content_slider_html_render($atts) {
    $product_button_bg_color = esc_html(get_ecctdm_option('add_to_cart_button_color'));
    $product_button_color = esc_html(get_ecctdm_option('add_to_cart_button_txt_color'));
    $product_button_color_border = esc_html(get_ecctdm_option('add_to_cart_button_color_border'));
-   
 
    if ( $a['type'] == ''){
       if ($post_type != null ){
@@ -93,12 +93,21 @@ function ecctdm_content_slider_html_render($atts) {
             $meta_query  = WC()->query->get_meta_query();
             $tax_query   = WC()->query->get_tax_query();
             
-            $tax_query[] = array(
-               'taxonomy' => 'product_visibility',
-               'field'    => 'name',
-               'terms'    => 'featured',
-               'operator' => 'IN',
-            );
+            if($post_category){
+               $tax_query[] = array(
+                  'taxonomy' => 'product_cat',
+                  'field'    => 'term_id',
+                  'terms'     =>  array($post_category), 
+                  'operator'  => 'IN'
+               );
+            }else{
+               $tax_query[] = array(
+                  'taxonomy' => 'product_visibility',
+                  'field'    => 'name',
+                  'terms'    => 'featured',
+                  'operator' => 'IN',
+               );
+            }
 
             $args = array(
                'post_type'           => 'product',
@@ -110,6 +119,7 @@ function ecctdm_content_slider_html_render($atts) {
                'meta_query'          => $meta_query,
                'tax_query'           => $tax_query,
             );
+
             $prdotti = new WP_Query( $args ); 
 
          $prdotti = apply_filters('ecctdm_carousel_product_query', $prdotti, $args); 
@@ -134,11 +144,12 @@ function ecctdm_content_slider_html_render($atts) {
       default:
          /* Post Type */
          $args = array(
-               'post_type' => $tipo_di_post,
-               'orderby'   => 'date',
-               'order' => 'DESC', 
-               'posts_per_page'=>$posts_number, 
-         );
+            'post_type'       => $tipo_di_post,
+            'orderby'         => 'date',
+            'order'           => 'DESC', 
+            'posts_per_page'  =>$posts_number, 
+            'category'        =>$post_category
+      );
          $posts = get_posts( $args );     
 
          // apply filter to modify posts query result

@@ -44,3 +44,85 @@ function ecctdm_exerpt_content($content,$limit) {
 
     return $types;
 } );
+
+/* Get taxonomy by custom post type  */
+
+function tdm_get_terms_by_post_type( $postType = 'post', $taxonomy = 'category'){
+    
+  /**
+   * @param postType default 'post'
+   * @param taxonomy default 'category'
+   * 
+   * @return array of terms for a given $posttype and $taxonomy
+   * @since 1.0.1
+   * 
+   * 1. Get all posts by post type
+   * 2. Loop through the posts array and retrieve the terms attached to those posts
+   * 3. Store the new terms objects within `$post_terms`
+   * 4. loop through `$post_terms` as it's a array of term objects.
+   * 5. store the terms with our desired key, value pair inside `$post_terms_array`
+   */
+
+  $postType = (isset($_REQUEST['post_type']) ) ? $_REQUEST['post_type'] : 'post';
+
+  if($postType == 'product'){
+    $taxonomy = 'product_cat';
+  }
+  //1. Get all posts by post type
+  $get_all_posts = get_posts( array(
+      'post_type'     => esc_attr( $postType ),
+      'post_status'   => 'publish',
+      'numberposts'   => -1
+  ) );
+
+  if( !empty( $get_all_posts ) ){
+
+      //First Empty Array to store the terms
+      $post_terms = array();
+      
+      //2. Loop through the posts array and retrieve the terms attached to those posts
+      foreach( $get_all_posts as $all_posts ){
+
+          /**
+           * 3. Store the new terms objects within `$post_terms`
+           */
+          $post_terms[] = get_the_terms( $all_posts->ID, esc_attr( $taxonomy ) );
+
+      }
+
+      //Second Empty Array to store final term data in key, value pair
+      $post_terms_array = array();
+
+      /**
+       * 4. loop through `$post_terms` as it's a array of term objects.
+       */
+
+      foreach($post_terms as $new_arr){
+          foreach($new_arr as $arr){
+
+              /**
+               * 5. store the terms with our desired key, value pair inside `$post_terms_array`
+               */
+              $post_terms_array[] = array(
+                  'name'      => $arr->name,
+                  'term_id'   => $arr->term_id,
+                  'slug'      => $arr->slug,
+                  'url'       => get_term_link( $arr->term_id )
+              );
+          }
+      }
+
+      //6. Make that array unique as duplicate entries can be there
+      $terms = array_unique($post_terms_array, SORT_REGULAR);
+
+      //7. Return the final array
+      //return $terms;
+      echo json_encode( $terms);
+      // Don't forget to always exit in the ajax function.
+      exit();
+  }
+
+}
+
+add_action('wp_ajax_tdm_get_terms_by_post_type', 'tdm_get_terms_by_post_type');
+/********* */

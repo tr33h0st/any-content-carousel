@@ -100,5 +100,6 @@ You can select the type of content yourself to create the carousel and insert it
 = 1.2.2, July 03, 2021 =
 * FIX: add library fslightboxjs 
 
-= 1.2.3, August 07, 2021 =
+= 1.3.0, August 18, 2021 =
+* ADD: Post and Products category Selection
 * FIX: User Author carousel 

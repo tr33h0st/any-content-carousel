@@ -127,7 +127,9 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 				if ( ! empty( $options['select_post_type'] ) ) {
 					$options['select_post_type'] = sanitize_text_field( $options['select_post_type'] );
 				}
-
+				if ( ! empty( $options['select_category'] ) ) {
+					$options['select_category'] = sanitize_text_field( $options['select_category'] );
+				}
 				// Input button color for product
 				if ( ! empty( $options['add_to_cart_button_color'] ) ) {
 					$options['add_to_cart_button_color'] = sanitize_hex_color( $options['add_to_cart_button_color'] );
@@ -261,6 +263,25 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 											<?php echo strip_tags( $label ); ?>
 										</option>
 									<?php } ?>
+								</select>
+							</td>
+						</tr>
+
+					  <?php // Category ?>
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Category', 'tdm_carousel' ); ?></th>
+							<td>
+								<?php $value = self::get_ecctdm_option( 'selected_category' ); ?>
+								<select id="selected_category" name="ecctdm_options[selected_category]">
+								<option value=""><?php esc_html_e('Category','tdm_carousel') ?></option>
+								<?php if($value != null ){ 
+									$term = get_term( $value );
+									$category_name = $term->name;
+									?>
+                                 <option value="<?php echo esc_attr( $value ); ?>" selected>
+									<?php echo strip_tags( $category_name ); ?>
+								</option>
+								<?php } ?>
 								</select>
 							</td>
 						</tr>
