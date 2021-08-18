@@ -3,9 +3,9 @@ Contributors: treehost,Matteo182
 Tags: woocommerce, carousel, author carousel, post carousel, product carousel, slick slider, custom post type, post, type, shortcode
 Donate link: https://paypal.me/treehost
 Requires at least: 3.8
-Tested up to: 5.7.2
+Tested up to: 5.8.0
 Requires PHP: 5.2.4
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -127,8 +127,8 @@ if ( ! class_exists( 'tdm_ecctdm_Options' ) ) {
 				if ( ! empty( $options['select_post_type'] ) ) {
 					$options['select_post_type'] = sanitize_text_field( $options['select_post_type'] );
 				}
-				if ( ! empty( $options['select_category'] ) ) {
-					$options['select_category'] = sanitize_text_field( $options['select_category'] );
+				if ( ! empty( $options['selected_category'] ) ) {
+					$options['selected_category'] = sanitize_text_field( $options['selected_category'] );
 				}
 				// Input button color for product
 				if ( ! empty( $options['add_to_cart_button_color'] ) ) {
