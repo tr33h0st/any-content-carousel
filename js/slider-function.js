@@ -16,10 +16,13 @@
          if (slick_list_width < 769 ){
             $(".item-contenuto").css({"max-width":slick_list_width+"px","height":"auto"});
             $(".container-slide .slick-slide ").css({"margin":"0"});
-            // metti with 100% alle colonne dx e sx
+            // with 100% column dx and sx
             $(".container-slide .item-inner .col-sx").css({"width":"100%","height":"250px"});
             $(".container-slide .item-inner .col-dx").css({"width":"100%","height":"auto"});
             $(".container-slide .item-inner").css({"flex-wrap":"wrap"});
+            // centered autor image
+            $(".container-slide .item-inner .col-sx .avatar-image").css({"margin":"0 auto"});
+            $(".container-slide .item-inner .col-sx .avatar-image").css({"margin-top":"5rem"});
         }else{
             $(".item-contenuto").css({"width":slick_list_width+"px"});
         }
