@@ -89,7 +89,7 @@ if ( $posts ) {
 
       $content .= '<div class="col-dx">';
       $content .= '<h3>'.esc_html(get_the_title($id_post)).'</h3>';
-      $content .=   'By '.$author_name.' on '. $post_date.' in '.$category[0]->name;
+      $content .=   '<span class="autor-info">By '.$author_name.' on '. $post_date.' in '.$category[0]->name.'</span>';
       $content .=  '<hr>';
       $content .=  '<p>'.wp_kses_post(ecctdm_exerpt_content($post->post_content,150)).'</p>';
       $content .=  '<a style="background:'.$button_bg_color.';border: 1px solid '.$button_color_border.';color:'.$button_color.';" class="button btn-bianco" href="'.get_permalink($id_post ).'">'. __('Read more','ecctdm_carousel') .'</a>';
